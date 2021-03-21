@@ -45,27 +45,19 @@ class RoleController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
     {
-        //
+        $role = Role::find($id);
+        return view('editRole' , compact('role'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, Role $role)
     {
-        //
+        $role->title = $request->title;
+        $role->save();
+       
+        return redirect('roles');
     }
 
    

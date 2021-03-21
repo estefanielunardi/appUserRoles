@@ -26,6 +26,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+
 //--USER ROUTES
 Route::get('/users', [UserController::class, 'getAllUsers'])->name('getUsers');
 Route::get('/attach/{id}', [UserController::class, 'attachRoleToUser'])->name('attachRole')->middleware(['auth']);
@@ -38,5 +39,4 @@ Route::get('/role/create', [RoleController::class, 'create'])->name('createRoles
 Route::post('/role/store', [RoleController::class, 'store'])->name('storeRole')->middleware(['auth']);
 Route::delete('/role/{id}', [RoleController::class, 'destroy'])->name('deleteRole')->middleware(['auth']);
 Route::get('/role/edit/{id}', [RoleController::class, 'edit'])->name('editRole')->middleware(['auth']);
-Route::put('/role/update/{role}', [RoleController::class, 'update'])->name('updateRole')->middleware(['auth']);
-
+Route::put('/role/update/{id}', [RoleController::class, 'update'])->name('updateRole')->middleware(['auth']);
