@@ -12,14 +12,14 @@ class AttachRoleTest extends TestCase
 { 
     use RefreshDatabase;
     
-    public function test_an_auth_user_route()
+    public function test_an_auth_user_detach_role_route()
     {
         $this->withoutExceptionHandling();
 
         $this->actingAs(User::factory()->create());
         $role = Role::factory()->create();
 
-        $response = $this->post('/attach/' . $role->id);
+        $response = $this->get('/attach/' . $role->id);
 
         $response->assertStatus(302);
     }

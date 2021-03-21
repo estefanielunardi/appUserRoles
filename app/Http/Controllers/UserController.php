@@ -31,5 +31,16 @@ class UserController extends Controller
 
         return redirect('users', compact('roles'), ['message'=>'Oh no! you already have this role']);
     }
+
+    public function detachRoleFromUser($id)
+    {
+        $user_id=auth()->id();   
+        $user=User::find($user_id);
+        $user->roles()->detach($id);
+
+        $roles=$user->roles()->get();
+
+        return redirect('users'); 
+    }
     
 }
