@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Role;
+use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
 
-    public function index()
+    public function getAllRoles()
     {
-        //
+        $roles = DB::table('roles')
+                    ->paginate(6);
+        return view('rolesPage', compact('roles'));
     }
 
     
