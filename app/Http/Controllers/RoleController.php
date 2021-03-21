@@ -68,14 +68,13 @@ class RoleController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
-        //
+        DB::table('roles')
+        ->where('id', $id)
+        ->delete();
+        
+        return redirect('roles');
     }
 }

@@ -30,3 +30,5 @@ require __DIR__.'/auth.php';
 Route::get('/roles', [RoleController::class, 'getAllRoles'])->name('getRoles');
 Route::get('/role/create', [RoleController::class, 'create'])->name('createRoles')->middleware(['auth']);
 Route::post('/role/store', [RoleController::class, 'store'])->name('storeRole')->middleware(['auth']);
+Route::delete('/role/{id}', [RoleController::class, 'destroy'])->name('deleteRole')->middleware(['auth']);
+
