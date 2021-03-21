@@ -40,7 +40,6 @@
                 </div>
             @endif
 
-        <!-- component -->
     <div class="overflow-x-auto">
         <div class="bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
             <div class="">
