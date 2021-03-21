@@ -21,8 +21,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
-
 Route::get('/', [UserController::class, 'getWelcomePageWithUser'])->name('getWelcome');
 
 //--USER ROUTES
@@ -39,3 +37,5 @@ Route::post('/role/store', [RoleController::class, 'store'])->name('storeRole')-
 Route::delete('/role/{id}', [RoleController::class, 'destroy'])->name('deleteRole')->middleware(['auth']);
 Route::get('/role/edit/{id}', [RoleController::class, 'edit'])->name('editRole')->middleware(['auth']);
 Route::put('/role/update/{id}', [RoleController::class, 'update'])->name('updateRole')->middleware(['auth']);
+
+require __DIR__.'/auth.php';
