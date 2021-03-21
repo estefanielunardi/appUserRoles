@@ -24,6 +24,8 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+
 //--ROLE ROUTES
 
 Route::get('/role/create', [RoleController::class, 'create'])->name('createRoles')->middleware(['auth']);
+Route::post('/role/store', [RoleController::class, 'store'])->name('storeRole')->middleware(['auth']);

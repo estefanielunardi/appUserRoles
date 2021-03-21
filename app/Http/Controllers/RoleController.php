@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Role;
 
 class RoleController extends Controller
 {
@@ -18,15 +19,16 @@ class RoleController extends Controller
         return view('createRoleForm');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $role = Role::create([
+            'title' => $request->title,
+        ]);
+
+        $role->save();
+
+        return redirect('roles');
     }
 
     /**
