@@ -16,12 +16,10 @@ class RoleController extends Controller
         return view('rolesPage', compact('roles'));
     }
 
-    
     public function create()
     {
         return view('createRoleForm');
     }
-
     
     public function store(Request $request)
     {
@@ -33,18 +31,6 @@ class RoleController extends Controller
 
         return redirect('roles');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
    
     public function edit($id)
     {
@@ -59,7 +45,6 @@ class RoleController extends Controller
        
         return redirect('roles');
     }
-
    
     public function destroy($id)
     {
