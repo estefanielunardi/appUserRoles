@@ -28,7 +28,8 @@ require __DIR__.'/auth.php';
 
 //--USER ROUTES
 Route::get('/users', [UserController::class, 'getAllUsers'])->name('getUsers');
-Route::post('/attach/{id}', [UserController::class, 'attachRoleToUser'])->name('attachRole')->middleware(['auth']);
+Route::get('/attach/{id}', [UserController::class, 'attachRoleToUser'])->name('attachRole')->middleware(['auth']);
+Route::get('/detach/{id}', [UserController::class, 'detachRoleFromUser'])->name('detachRole')->middleware(['auth']);
 
 //--ROLE ROUTES
 
@@ -36,4 +37,6 @@ Route::get('/roles', [RoleController::class, 'getAllRoles'])->name('getRoles');
 Route::get('/role/create', [RoleController::class, 'create'])->name('createRoles')->middleware(['auth']);
 Route::post('/role/store', [RoleController::class, 'store'])->name('storeRole')->middleware(['auth']);
 Route::delete('/role/{id}', [RoleController::class, 'destroy'])->name('deleteRole')->middleware(['auth']);
+Route::get('/role/edit/{id}', [RoleController::class, 'edit'])->name('editRole')->middleware(['auth']);
+Route::put('/role/update/{role}', [RoleController::class, 'update'])->name('updateRole')->middleware(['auth']);
 
