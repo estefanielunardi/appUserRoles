@@ -43,10 +43,9 @@ services:
     tty: true
     ports:
       - "3306:3306"
+    env_file:
+      - .env
     environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_ROOT_PASSWORD: laravelpass
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
