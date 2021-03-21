@@ -33,9 +33,8 @@
                                     @foreach ($user->roles as $role)
                                     <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
                                     {{$role->title}}
-                                    <a class="text-red-600" href="{{ route('deleteRole', $role->id)}}">X</a>
+                                    <a class="text-red-600" href="{{ route('detachRole', $role->id)}}">X</a>
                                     </span>
-
                                     @endforeach
                                 </td>
                                 <td class="py-3 px-6 text-center">
