@@ -15,4 +15,21 @@ class UserController extends Controller
 
         return view('usersPage', compact('users'));
     }
+
+    public function attachRoleToUser($id)
+    {
+        $user_id=auth()->id(); 
+        $user=User::find($user_id);
+        $userRoles=$user->roles()->find($id);
+
+        if($userRoles==null){
+            $user->roles()->attach($id);
+            $roles=$user->roles()->get();
+
+            return redirect('users');
+        }
+
+        return redirect('users', compact('roles'), ['message'=>'Oh no! you already have this role']);
+    }
+    
 }

@@ -28,7 +28,7 @@ require __DIR__.'/auth.php';
 
 //--USER ROUTES
 Route::get('/users', [UserController::class, 'getAllUsers'])->name('getUsers');
-
+Route::post('/attach/{id}', [UserController::class, 'attachRoleToUser'])->name('attachRole')->middleware(['auth']);
 
 //--ROLE ROUTES
 
