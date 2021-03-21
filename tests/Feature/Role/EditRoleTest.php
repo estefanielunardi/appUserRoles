@@ -3,13 +3,14 @@
 namespace Tests\Feature\Role;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Role;
 
 class EditRoleTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_a_role_can_be_edit_view()
     {
         $this->withoutExceptionHandling();
