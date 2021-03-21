@@ -34,10 +34,11 @@ class UserController extends Controller
             $user->roles()->attach($id);
             $roles=$user->roles()->get();
 
-            return redirect('users');
+            return redirect('roles')->with('message' , '¡Yeii you have a brand new role!');
+        }else{
+            return redirect('roles')->with('message' , '¡Oh No! you already have this role!');;
         }
-
-        return redirect('users', compact('roles'), ['message'=>'Oh no! you already have this role']);
+        
     }
 
     public function detachRoleFromUser($id)
