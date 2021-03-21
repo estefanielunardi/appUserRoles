@@ -29,6 +29,8 @@ Una aplicación para crear, editar y eliminar Roles. Una vez te has logeado, emp
 
 `php artisan migrate:refresh --seed`
 
+Con este comando se crean users y roles en la base de dato. Los usuarios pueden logearse en la app.
+
 ### Paso Cuatro: Running Tests
 
 `php artisan test`
