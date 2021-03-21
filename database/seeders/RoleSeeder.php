@@ -27,6 +27,14 @@ class RoleSeeder extends Seeder
                 'id'    => 4,
                 'title' => 'Super Admin',
             ],
+            [
+                'id'    => 5,
+                'title' => 'Super User',
+            ],
+            [
+                'id'    => 6,
+                'title' => 'Premium',
+            ],
         ];
 
         Role::insert($roles);
