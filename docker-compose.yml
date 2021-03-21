@@ -37,7 +37,7 @@ services:
 
   #MySQL Service
   db:
-    image: mysql:5.7.22
+    image: mysql:5.7
     container_name: db
     restart: unless-stopped
     tty: true
@@ -46,11 +46,11 @@ services:
     environment:
       MYSQL_DATABASE: laravel
       MYSQL_ROOT_PASSWORD: laravelpass
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
       - dbdata:/var/lib/mysql/
-      - ./mysql/my.cnf:/etc/mysql/my.cnf
     networks:
       - app-network
 
