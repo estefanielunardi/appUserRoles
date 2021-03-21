@@ -16,9 +16,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,6 +28,8 @@ require __DIR__.'/auth.php';
 
 
 //--USER ROUTES
+Route::get('/', [UserController::class, 'getWelcomePageWithUser'])->name('getWelcome');
+
 Route::get('/users', [UserController::class, 'getAllUsers'])->name('getUsers');
 Route::get('/attach/{id}', [UserController::class, 'attachRoleToUser'])->name('attachRole')->middleware(['auth']);
 Route::get('/detach/{id}', [UserController::class, 'detachRoleFromUser'])->name('detachRole')->middleware(['auth']);

@@ -8,6 +8,14 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    public function getWelcomePageWithUser()
+    {
+        $users = User::with('roles')
+                    ->get();
+                    
+        return view('welcome', compact('users'));
+    }
+
     public function getAllUsers()
     {
         $users = User::with('roles')
