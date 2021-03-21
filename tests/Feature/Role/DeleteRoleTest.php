@@ -6,9 +6,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
+use App\Models\Role;
 
 class DeleteRoleTest extends TestCase
-{use RefreshDatabase;
+{
+    use RefreshDatabase;
 
     public function test_delete_a_role()
     {
@@ -16,16 +18,16 @@ class DeleteRoleTest extends TestCase
 
         $this->actingAs(User::factory()->create());
 
-        $role = [
+        $role =[ 
             'title'=>'Admin'
         ];
 
-        $this->post('/role/store', $role);
+        $this->post(route('storeRole', $role));
 
-        $response = $this->delete('/role/1');
-
-        $response->assertRedirect('/roles', $role);
-        $this->assertDatabaseCount('roles', 0);
-        $this->assertDatabaseMissing('roles', $role);
+       $response= $this->delete('/role/1');
+       $response->assertStatus(302);
+        $this->assertDatabaseMissing('roles', [        
+            'title' => 'Admin',
+            'id' => 1, ]);
     }
 }
