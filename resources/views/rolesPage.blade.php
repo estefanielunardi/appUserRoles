@@ -12,7 +12,7 @@
 
     <article class="flex pl-12 md:justify-start pb-7">
         <form action="{{'/role/create'}}" method="get">
-            <button class="bg-blue-400 flex flex-row align-start items-center font-serif text-white text-2xl mt-4 px-3 py-2 w-40 md:w-56  rounded-xl shadow-md" type="submit">
+            <button class="bg-blue-400 flex flex-row align-start items-center antialiased text-2xl mt-4 px-3 py-2 w-40 md:w-56  rounded-xl shadow-md" type="submit">
                 <svg width="30" height="30" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0)">
                         <path d="M8.48486 16.8905L25.4547 17.0491M16.8905 25.4547L17.0491 8.48491L16.8905 25.4547Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -23,7 +23,7 @@
                         </clipPath>
                     </defs>
                 </svg>
-                <p class="text-sm text-black pl-2 exo">Add New Role</p>
+                <p class="text-sm text-black pl-2 antialiased">Add New Role</p>
             </button>
         </form>
     </article>
